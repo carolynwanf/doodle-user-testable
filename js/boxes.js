@@ -1,3 +1,4 @@
+// fake data
 let dates = [
   {
     date: "10/1/22",
@@ -73,6 +74,7 @@ let dates = [
   },
 ];
 
+// Making cards for each time slot
 let card = d3
   .select("#selectionArea")
   .selectAll("div")
@@ -82,16 +84,19 @@ let card = d3
   .attr("class", "col-2 card")
   .attr("style", "padding:0.5em; margin: 1em;");
 
+// Adding the date
 card
   .append("p")
   .attr("style", "color:black; font-weight:bold;")
   .text((d) => d.date);
 
+// Adding the time
 card
   .append("p")
   .attr("style", "color:black;")
   .text((d) => d.startTime + "-" + d.endTime);
 
+// Adding the 3-state checkbox
 card
   .append("div")
   .append("span")
@@ -113,36 +118,16 @@ card
       i.class = "checkbox no";
       d3.select(this).attr("class", "checkbox no");
     }
-
-    console.log(i.class);
   });
 
 // function to clear all boxes
 function clearAll() {
   let checkboxes = document.getElementsByClassName("checkbox");
 
-  checkboxes.foreach((el) => {
-    el.className = "checkbox no";
-  });
-}
+  for (var i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].className = "checkbox no";
+    dates[i].class = "checkbox no";
+  }
 
-function toggleCheckbox(event) {
-  // if current class state is "yes", change to "maybe"
-  if (event.target.className == "checkbox yes") {
-    event.target.className = "checkbox maybe";
-    // event.target.classList.add('.checkbox.maybe');
-    checkbox.innerHTML = `<svg id="i-close" viewBox="0 0 32 32" width="20" height="20" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="10.9375%"><path d="M2 30 L30 2 M30 30 L2 2" /></svg>`;
-  }
-  // if current class state is "no", change to "yes"
-  else if (event.target.className == "checkbox no") {
-    event.target.className = "checkbox yes";
-    checkbox.innerHTML = `<svg id="i-checkmark" viewBox="0 0 32 32" width="20" height="20" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="10.9375%"><path d="M2 20 L12 28 30 4" /></svg>`;
-  }
-  // if current class state is "maybe", change to "no"
-  else {
-    event.target.className = "checkbox no";
-    // event.target.classList.remove('.checkbox.maybe');
-    // event.target.classList.add('.checkbox.no');
-    checkbox.innerHTML = "";
-  }
+  alert("submitted!");
 }
