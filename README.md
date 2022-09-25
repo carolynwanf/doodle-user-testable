@@ -8,3 +8,6 @@
 - In VSCode, go to the index.html file and click the 4th icon down in the left sidebar. The prototype should open directly in your default browser!
 - Alternatively, install the [Live Server plugin](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for VSCode. After the plugin is installed, go to the index.html file and right-click anywhere in the text editor. Within the dropdown menu, there will be an option titled "Open with Live Server". Clicking it should open the prototype in your default browser!
 - Alternatively, you can also open index.html with the browser of your choice!
+
+## Collaboration
+Liya Jin and Carolyn Wang
