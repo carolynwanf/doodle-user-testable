@@ -46,3 +46,14 @@ p {
   font-weight: bold;
   vertical-align: middle;
 }
+
+.day {
+  font-size: 25px;
+  color:#7b7b7b;
+  text-transform: uppercase;
+
+}
+
+.people {
+  color: black;
+}

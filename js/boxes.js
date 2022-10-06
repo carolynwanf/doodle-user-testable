@@ -1,76 +1,44 @@
 // fake data
 let dates = [
   {
-    date: "10/1/22",
+    date: "10/17/22",
+    day: "Mon",
     startTime: "12:00 PM",
     endTime: "1:00 PM",
     class: "checkbox no",
+    peopleAvailable: 1,
   },
   {
-    date: "10/2/22",
+    date: "10/18/22",
+    day: "Tues",
     startTime: "12:00 PM",
     endTime: "1:00 PM",
     class: "checkbox no",
+    peopleAvailable: 1,
   },
   {
-    date: "10/3/22",
+    date: "10/19/22",
+    day: "Wed",
     startTime: "12:00 PM",
     endTime: "1:00 PM",
     class: "checkbox no",
+    peopleAvailable: 0,
   },
   {
-    date: "10/4/22",
+    date: "10/20/22",
+    day: "Thurs",
     startTime: "12:00 PM",
     endTime: "1:00 PM",
     class: "checkbox no",
+    peopleAvailable: 1,
   },
   {
-    date: "10/5/22",
+    date: "10/21/22",
+    day: "Fri",
     startTime: "12:00 PM",
     endTime: "1:00 PM",
     class: "checkbox no",
-  },
-  {
-    date: "10/6/22",
-    startTime: "12:00 PM",
-    endTime: "1:00 PM",
-    class: "checkbox no",
-  },
-  {
-    date: "10/7/22",
-    startTime: "12:00 PM",
-    endTime: "1:00 PM",
-    class: "checkbox no",
-  },
-  {
-    date: "10/8/22",
-    startTime: "12:00 PM",
-    endTime: "1:00 PM",
-    class: "checkbox no",
-  },
-  {
-    date: "10/9/22",
-    startTime: "12:00 PM",
-    endTime: "1:00 PM",
-    class: "checkbox no",
-  },
-  {
-    date: "10/10/22",
-    startTime: "12:00 PM",
-    endTime: "1:00 PM",
-    class: "checkbox no",
-  },
-  {
-    date: "10/11/22",
-    startTime: "12:00 PM",
-    endTime: "1:00 PM",
-    class: "checkbox no",
-  },
-  {
-    date: "10/12/22",
-    startTime: "12:00 PM",
-    endTime: "1:00 PM",
-    class: "checkbox no",
+    peopleAvailable: 0,
   },
 ];
 
@@ -90,11 +58,29 @@ card
   .attr("style", "color:black; font-weight:bold;")
   .text((d) => d.date);
 
+// Adding the day
+card
+  .append("p")
+  .attr("class", "day")
+  .text((d) => d.day);
+
 // Adding the time
 card
   .append("p")
   .attr("style", "color:black;")
   .text((d) => d.startTime + "-" + d.endTime);
+
+// Adding the number of people available
+card
+  .append("p")
+  .attr("class", "people")
+  .text((d) => {
+    if (d.peopleAvailable == 1) {
+      return d.peopleAvailable + " person available";
+    } else {
+      return d.peopleAvailable + " people available";
+    }
+  });
 
 // Adding the 3-state checkbox
 card
